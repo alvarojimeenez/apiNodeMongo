@@ -3,6 +3,8 @@ const app = express();
 
 require('dotenv').config();
 const teamRoutes = require("./routes/team");
+const footballPlayerRoutes = require("./routes/footballPlayer")
+const origenRoutes = require("./routes/origen")
 
 // Configurar la conexión de mongoose
 const mongoose = require("mongoose");
@@ -16,6 +18,8 @@ main().catch((err) => console.log(err));
 
 app.use(express.json());
 app.use('/teams',teamRoutes);
+app.use('/footballPlayer', footballPlayerRoutes);
+app.use('/origenTeam', origenRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log("El servidor se ha iniciado en el puerto "+process.env.PORT)
