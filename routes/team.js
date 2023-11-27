@@ -5,7 +5,7 @@ const router = express.Router()
 const {check} = require('express-validator');
 const {getTeams, getTeamsById, addTeam, deleteTeam, editTeam} = require("./../controllers/teams");
 const {validateFields} = require("./../middlewares/validate-fields")
-const {existEmail} = require("./../helpers/db-validators")
+const {existEmail, existEmailPut} = require("./../helpers/db-validators")
 
 router
 .route('/')
@@ -25,7 +25,7 @@ router
     check('id', "Not valid mongo id").isMongoId(),
     check('name','Name is required').not().isEmpty(),
     check('city', 'City is required').not().isEmpty(),
-    check('email').custom(existEmail),
+    check('email').custom(existEmailPut),
     validateFields
 ], editTeam)
 

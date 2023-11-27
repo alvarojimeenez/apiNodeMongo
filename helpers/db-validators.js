@@ -7,4 +7,11 @@ const existEmail = async (email) =>{
     }
 }
 
-module.exports = {existEmail}
+const existEmailPut = async (email, {req})=>{
+    const emails = await Team.findOne({email});
+    if (emails && emails.id!= req.params.id) {
+        throw new Error(`Email ${email} already exists in database`);
+    }
+}
+
+module.exports = {existEmail, existEmailPut}
