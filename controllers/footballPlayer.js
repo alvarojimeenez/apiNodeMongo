@@ -12,7 +12,7 @@ const getFootballPlayers = async(req, res) => {
 
 const getFootballPlayersById = async(req, res) => {
     try{
-        const players = await FootballPlayer.find({_id: req.params.id});
+        const players = await FootballPlayer.findById({_id: req.params.id});
         res.status(200).json(players);
     }catch(error){
         res.status(500).json({message: error})

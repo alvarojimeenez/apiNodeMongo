@@ -35,7 +35,7 @@ const addTeam = async(req, res) => {
 
 const deleteTeam = async(req, res) => {
   try {
-    const teams = await Team.findByIdAndRemove({_id: req.params.id})
+    const teams = await Team.findByIdAndDelete({_id: req.params.id});
     if (teams){
       res.status(200).json({message: "Eliminado"});
     }else {

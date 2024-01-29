@@ -12,7 +12,7 @@ const getOrigen = async(req, res) => {
 
 const getOrigenById = async(req, res) => {
     try{
-        const origin = await Origen.find({_id: req.params.id});
+        const origin = await Origen.findById({_id: req.params.id});
         res.status(200).json(origin);
     }catch(error){
         res.status(500).json({message: error})
@@ -42,7 +42,7 @@ const deleteOrigen = async(req,res) => {
 const editOrigen = async(req, res) =>{
     try{
         const origin = req.body;
-        await Origin.findByIdAndUpdate(req.params.id, origin);
+        await Origen.findByIdAndUpdate(req.params.id, origin);
         res.status(200).json({message: "Editado"})
     }catch(error){
         res.status(500).json({message: error})
