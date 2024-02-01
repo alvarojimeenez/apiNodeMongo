@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const {validationResult} = require('express-validator');
 
+
 const getUsers = async(req, res) => {
     try{
         const users = await User.find();
@@ -32,7 +33,9 @@ const addUser = async(req,res) => {
 
 const deleteUser = async(req,res) => {
     try{
-        await User.findByIdAndDelete({_id: req.params.id});
+        const user = await User.findById({_id: req.params.id});
+        user.active = false;
+        await user.save();
         res.status(200).json({message: "Eliminado"})
     }catch(error){
         res.status(500).json({message: error})
