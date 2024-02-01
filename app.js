@@ -24,7 +24,7 @@ app.use(express.json());
 app.use('/teams',teamRoutes);
 app.use('/footballPlayer', footballPlayerRoutes);
 app.use('/origenTeam', origenRoutes);
-app.use('/user', userRoutes);
+app.use('/users', userRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log("El servidor se ha iniciado en el puerto "+process.env.PORT)
