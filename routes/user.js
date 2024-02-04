@@ -13,7 +13,7 @@ router
 .get(getUsers)
 .post([
     check('name','Name is required').not().isEmpty(),
-    check('password', "Password is incorrect").matches("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8}$/"),
+    //check('password', "Password is incorrect").matches("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8}$/"),
     check('email').isEmail(),
     check('email').custom(existEmailUser),
     check('login').custom(existLogin),

@@ -9,6 +9,7 @@ const teamRoutes = require("./routes/team");
 const footballPlayerRoutes = require("./routes/footballPlayer")
 const origenRoutes = require("./routes/origen")
 const userRoutes = require("./routes/user")
+const loginRoutes = require("./routes/auth")
 
 // Configurar la conexión de mongoose
 const mongoose = require("mongoose");
@@ -25,6 +26,7 @@ app.use('/teams',teamRoutes);
 app.use('/footballPlayer', footballPlayerRoutes);
 app.use('/origenTeam', origenRoutes);
 app.use('/users', userRoutes);
+app.use('/auth', loginRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log("El servidor se ha iniciado en el puerto "+process.env.PORT)
